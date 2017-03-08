@@ -24,6 +24,18 @@ namespace SeleniumNUnitParam
 
         }
 
+         [Test]
+        public void GoogleFootBallTest()
+        {
+            Driver.Navigate().GoToUrl("http://www.google.com");
+            Driver.FindElement(By.Name("q")).SendKeys("Football");
+            System.Threading.Thread.Sleep(5000);
+            Driver.FindElement(By.Name("btnG")).Click();
+            Assert.That(Driver.PageSource.Contains("Football"), Is.EqualTo(true),
+                                            "The text Football doest not exist");
+
+        }
+
         [Test]
         public void ExecuteAutomationTest()
         {
